@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuncetec.healthcare.mapper.login.LoginMapper" >
+	<resultMap id="BaseResultMap" type="com.yuncetec.healthcare.model.TmUserPO" >
+		<id column="USER_ID" property="userId" jdbcType="INTEGER" />
+		<result column="USER_CODE" property="userCode" jdbcType="VARCHAR" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+		<result column="SEX" property="sex" jdbcType="INTEGER" />
+		<result column="PHONE" property="phone" jdbcType="VARCHAR" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+		<result column="EMAIL" property="email" jdbcType="VARCHAR" />
+		<result column="BIRTHDAY" property="birthday" jdbcType="DATE" />
+		<result column="USER_TYPE" property="userType" jdbcType="INTEGER" />
+		<result column="USER_STATUS" property="userStatus" jdbcType="INTEGER" />
+		<result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="CREATE_BY" property="createBy" jdbcType="INTEGER" />
+		<result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP" />
+		<result column="UPDATE_BY" property="updateBy" jdbcType="INTEGER" />
+	</resultMap>
+	<resultMap id="RoleResultMap" type="com.yuncetec.healthcare.bean.AclUserBean" >
+		<result column="ROLE_ID" property="roleId" jdbcType="INTEGER" />
+		<result column="ROLE_CODE" property="roleCode" jdbcType="VARCHAR" />
+		<result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- 登录后角色选择树 -->
+	<resultMap id="RoleChoiceResultMap" type="com.yuncetec.healthcare.bean.RoleTreeNode" >
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="PID" jdbcType="VARCHAR" property="pId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="ISPARENT" jdbcType="VARCHAR" property="isParent" />
+	</resultMap>
+	
+	<!-- 菜单结果集 -->
+    <resultMap id="MenuResultMap" type="com.yuncetec.healthcare.bean.MenuBean" >
+    <id column="FUNCTION_ID" jdbcType="DECIMAL" property="funcId" />
+    <result column="FUNCTION_CODE" jdbcType="VARCHAR" property="funcCode" />
+    <result column="FUNCTION_NAME" jdbcType="VARCHAR" property="funcName" />
+    <result column="FATHER_FUNC" jdbcType="DECIMAL" property="parentId" />
+    <result column="ACCESS_URL" jdbcType="VARCHAR" property="functionUrl" />
+    </resultMap>
+	
+	
+	<sql id="Base_Column_List" >
+	  USER_ID, USER_CODE, USER_NAME, PASSWORD, SEX, PHONE, MOBILE, EMAIL, BIRTHDAY, USER_TYPE, 
+	  USER_STATUS, CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY
+	</sql>
+	<select id="selectByUserCode" resultMap="BaseResultMap" parameterType="com.yuncetec.healthcare.model.TmUserPO" >
+		select 
+		<include refid="Base_Column_List" />
+		from tm_user
+		where USER_CODE = #{userCode}
+		and USER_STATUS = #{userStatus}
+	</select>
+
+	<!-- 根据代码查询用户所拥有的角色 -->
+	<select id="selectRoleByUserCode" resultMap="RoleResultMap" parameterType="string">
+		select tr.ROLE_ID,tr.ROLE_CODE,tr.ROLE_NAME from tm_user tu 
+		LEFT JOIN tr_user_role tur ON tu.USER_ID = tur.USER_ID
+		LEFT JOIN tm_role tr ON tur.ROLE_ID = tr.ROLE_ID
+		WHERE tu.USER_STATUS = 10011001
+		AND tr.ROLE_STATUS = 10011001
+		AND tu.USER_CODE = #{_parameter}
+	</select>
+	<!-- 登录后如果有多个角色，角色选择树 -->
+	<select id="selectRoleForChoice" resultMap="RoleChoiceResultMap" parameterType="int">
+		select tr.ROLE_ID as ID,tr.ROLE_NAME AS NAME, 0 AS PID, 'FALSE' AS ISPARENT
+		from tm_user tu 
+		LEFT JOIN tr_user_role tur ON tu.USER_ID = tur.USER_ID
+		LEFT JOIN tm_role tr ON tur.ROLE_ID = tr.ROLE_ID
+		WHERE tu.USER_STATUS = 10011001
+		AND tr.ROLE_STATUS = 10011001
+		AND tu.USER_ID = #{_parameter}
+	</select>
+	
+	<select id="getMenuInfo" resultMap="MenuResultMap" parameterType="int" >
+		select DISTINCT TF.FUNCTION_ID,
+			                TF.FUNCTION_CODE,
+			                TF.FUNCTION_NAME,
+			                TF.FATHER_FUNC,
+			                TF.ACCESS_URL
+		from tm_role tr, tr_role_func trf, tm_function tf
+		where tr.ROLE_ID = trf.ROLE_ID
+		and trf.FUNCTION_ID = tf.FUNCTION_ID
+		AND tr.ROLE_STATUS = 10011001
+		AND tf.FUNCTION_STATUS = 10011001
+		and tr.ROLE_ID = #{_parameter}
+		order by FUNCTION_ORDER
+	</select>
+    <!--  分页查询List -->
+    <select id="pageQueryUser" resultMap="BaseResultMap" parameterType="pager">
+		select 
+		<include refid="Base_Column_List" />
+		from tm_user
+    </select>
+</mapper>

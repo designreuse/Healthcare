@@ -1,0 +1,154 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?-o16pny');
+	src:url('../fonts/icomoon.eot?#iefix-o16pny') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-o16pny') format('woff'),
+		url('../fonts/icomoon.ttf?-o16pny') format('truetype'),
+		url('../fonts/icomoon.svg?-o16pny#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	font-size:20px;
+	vertical-align: middle;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-svg:before {
+	content: "\e600";
+}
+
+.icon-svg2:before {
+	content: "\e601";
+}
+
+.icon-svg3:before {
+	content: "\e602";
+}
+
+.icon-svg4:before {
+	content: "\e603";
+}
+
+.icon-svg5:before {
+	content: "\e604";
+}
+
+.icon-svg6:before {
+	content: "\e605";
+}
+
+.icon-svg7:before {
+	content: "\e606";
+}
+
+.icon-svg8:before {
+	content: "\e607";
+}
+
+.icon-svg9:before {
+	content: "\e608";
+}
+
+.icon-svg10:before {
+	content: "\e609";
+}
+
+.icon-svg11:before {
+	content: "\e60a";
+}
+
+.icon-svg12:before {
+	content: "\e60b";
+}
+
+.icon-svg13:before {
+	content: "\e60c";
+}
+
+.icon-svg14:before {
+	content: "\e60d";
+}
+
+.icon-svg15:before {
+	content: "\e60e";
+}
+
+.icon-svg16:before {
+	content: "\e60f";
+}
+
+.icon-svg17:before {
+	content: "\e610";
+}
+
+.icon-svg18:before {
+	content: "\e611";
+}
+
+.icon-svg19:before {
+	content: "\e612";
+}
+
+.icon-svg20:before {
+	content: "\e613";
+}
+
+.icon-svg21:before {
+	content: "\e614";
+}
+
+.icon-svg22:before {
+	content: "\e615";
+}
+
+.icon-svg23:before {
+	content: "\e616";
+}
+
+.icon-svg24:before {
+	content: "\e617";
+}
+
+.icon-svg25:before {
+	content: "\e618";
+}
+
+.icon-svg26:before {
+	content: "\e619";
+}
+
+.icon-svg27:before {
+	content: "\e61a";
+}
+
+.icon-svg28:before {
+	content: "\e61b";
+}
+
+.icon-svg29:before {
+	content: "\e61c";
+}
+
+.icon-svg30:before {
+	content: "\e61d";
+}
+
+.icon-svg31:before {
+	content: "\e61e";
+}
+
+.icon-svg32:before {
+	content: "\e61f";
+}
+

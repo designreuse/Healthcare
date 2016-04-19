@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <classPathEntry location="D:\Maven\maven_local_repository\mysql\mysql-connector-java\5.1.25\mysql-connector-java-5.1.25.jar" />
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/mydb" userId="root" password="workout" />
+    <javaModelGenerator targetPackage="com.yuncetec.healthcare.model" targetProject="healthcare-persistent" />
+    <sqlMapGenerator targetPackage="com.yuncetec.healthcare.mapper" targetProject="healthcare-persistent" />
+    <javaClientGenerator targetPackage="com.yuncetec.healthcare.mapper" targetProject="healthcare-persistent" type="XMLMAPPER" />
+    
+    <table schema="" tableName="TM_USER" domainObjectName="TmUserPO" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" selectByExampleQueryId="false">
+    	<generatedKey column="USER_ID" sqlStatement="MySql" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+	</table>
+    <table schema="" tableName="TM_ROLE" domainObjectName="TmRolePO" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" selectByExampleQueryId="false">
+    	<generatedKey column="ROLE_ID" sqlStatement="MySql" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+	</table>
+    <table schema="" tableName="TR_USER_ROLE" domainObjectName="TrUserRolePO" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" selectByExampleQueryId="false">
+    	<generatedKey column="ID" sqlStatement="MySql" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+	</table>
+    <table schema="" tableName="TM_FUNCTION" domainObjectName="TmFunctionPO" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" selectByExampleQueryId="false">
+    	<generatedKey column="FUNCTION_ID" sqlStatement="MySql" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+	</table>
+    <table schema="" tableName="TR_ROLE_FUNC" domainObjectName="TrRoleFuncPO" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" selectByExampleQueryId="false">
+    	<generatedKey column="ID" sqlStatement="MySql" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+	</table>
+  </context>
+</generatorConfiguration>
