@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <classPathEntry location="D:\Maven\maven_local_repository\mysql\mysql-connector-java\5.1.25\mysql-connector-java-5.1.25.jar" />
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8" userId="root" password="workout" />
+    <javaModelGenerator targetPackage="com.yuncetec.healthcare.bean.model" targetProject="healthcare-core" />
+    <sqlMapGenerator targetPackage="com.yuncetec.healthcare.dao" targetProject="healthcare-core" />
+    <javaClientGenerator targetPackage="com.yuncetec.healthcare.mapper" targetProject="healthcare-core" type="XMLMAPPER" />
+    <table schema="" tableName="TM_USER" domainObjectName="TmUserPO">
+    	<generatedKey column="USER_ID" sqlStatement="MySql" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+	</table>
+			
+	<!-- 
+	<table schema="" tableName="TT_DELIVERY_PLAN" domainObjectName="TtDeliveryPlanPO">
+    	<generatedKey column="PLAN_ID" sqlStatement="select SEQ_DELIVERY_PLAN.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TT_ACCEPT_ORDERS_D" domainObjectName="TtAcceptOrdersDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_ACCEPT_ORDERS.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="ACCEPT_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TT_DELIVERY_PLAN" domainObjectName="TtDeliveryPlanPO">
+    	<generatedKey column="PLAN_ID" sqlStatement="select SEQ_DELIVERY_PLAN.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TR_CUSTOMER_MATERIAL" domainObjectName="TrCustomerMaterialPO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_CUSTOMER_MATERIAL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	 <table schema="" tableName="TT_PICK_ORDERS_D" domainObjectName="TtPickOrdersDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_PICK_ORDERS_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+		<table schema="" tableName="TT_LABEL" domainObjectName="TtLabelPO">
+		<generatedKey column="LABEL_ID" sqlStatement="select SEQ_LABEL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TT_STORAGE_PLAN" domainObjectName="TtStoragePlanPO">
+    	<generatedKey column="PLAN_ID" sqlStatement="select SEQ_STORAGE_PLAN.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="RECEIVE_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="ARRIVAL_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TT_INV_CHECK" domainObjectName="TtInvCheckPO">
+    	<generatedKey column="CHECK_ID" sqlStatement="select SEQ_INV_CHECK.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+	<table schema="" tableName="TT_INV_CHECK_D" domainObjectName="TtInvCheckDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_INV_CHECK_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	    
+	
+	<table schema="" tableName="TT_INSPECTION" domainObjectName="TtInspectionPO">
+    	<generatedKey column="INSPECTION_ID" sqlStatement="select SEQ_INSPECTION.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="INSP_B_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="INSP_E_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="tm_user" domainObjectName="TmUserPO">
+    	<generatedKey column="USER_ID" sqlStatement="select SEQ_USER.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    </table>	
+    <table schema="" tableName="TT_ACCEPT_ORDERS" domainObjectName="TtAcceptOrdersPO">
+    	<generatedKey column="ACCEPT_ID" sqlStatement="select SEQ_ACCEPT_ORDERS.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="ACCEPT_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>  
+	<table schema="" tableName="TT_DELIVERY" domainObjectName="TtDeliveryPO">
+    	<generatedKey column="DELIVERY_ID" sqlStatement="select SEQ_DELIVERY.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="DELIVERY_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+	<table schema="" tableName="TT_STORAGE_ORDERS" domainObjectName="TtStorageOrdersPO">
+    	<generatedKey column="ORDER_ID" sqlStatement="select SEQ_STORAGE_ORDERS.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="STORAGE_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="SHELVES_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TT_STORAGE_ORDERS_D" domainObjectName="TtStorageOrdersDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_STORAGE_ORDERS_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="SHELVES_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TT_INVENTORY" domainObjectName="TtInventoryPO">
+    	<generatedKey column="INVENTORY_ID" sqlStatement="select SEQ_INVENTORY.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="STORAGE_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="OUT_STORAGE_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+   	<table schema="" tableName="TT_DELIVERY_PLAN" domainObjectName="TtDeliveryPlanPO">
+    	<generatedKey column="PLAN_ID" sqlStatement="select SEQ_DELIVERY_PLAN.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="ESTIMATE_TIME" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+
+		    <table schema="" tableName="TT_INV_CHECK_DIFF" domainObjectName="TtInvCheckDiffPO">
+    	<generatedKey column="DIFF_ID" sqlStatement="select SEQ_INV_CHECK_DIFF.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+	        <table schema="" tableName="TT_INV_CHECK_DIFF_D" domainObjectName="TtInvCheckDiffDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_INV_CHECK_DIFF_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+
+	<table schema="" tableName="TT_INV_CHECK_TASK" domainObjectName="TtInvCheckTaskPO">
+    	<generatedKey column="TASK_ID" sqlStatement="select SEQ_INV_CHECK_TASK.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+
+
+	<table schema="" tableName="TM_BUSINESS_CODE" domainObjectName="TmBusinessCodePO">
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TT_INSPECTION_D" domainObjectName="TtInspectionDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_INSPECTION_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TT_TRANSFER" domainObjectName="TtTransferPO">
+    	<generatedKey column="TRANSFER_ID" sqlStatement="select SEQ_TRANSFER.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TT_TRANSFER_D" domainObjectName="TtTransferDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_TRANSFER_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TT_INV_CHECK_RULE" domainObjectName="TtInvCheckRulePO">
+    	<generatedKey column="RULE_ID" sqlStatement="select SEQ_INV_CHECK_RULE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+
+	<table schema="" tableName="TT_STORAGE_PLAN_D" domainObjectName="TtStoragePlanDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_STORAGE_PLAN_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+
+
+
+    <table schema="" tableName="TT_PICK_ORDERS" domainObjectName="TtPickOrdersPO">
+    	<generatedKey column="PICK_ID" sqlStatement="select SEQ_PICK_ORDERS.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+
+
+    
+    <table schema="" tableName="TT_INV_CHECK_M" domainObjectName="TtInvCheckMPO">
+    	<generatedKey column="M_ID" sqlStatement="select SEQ_INV_CHECK_M.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TT_INV_CHECK_DIFF_D" domainObjectName="TtInvCheckDiffDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_INV_CHECK_DIFF_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+    
+    <table schema="" tableName="TT_INV_CHECK_DIFF" domainObjectName="TtInvCheckDiffPO">
+    	<generatedKey column="DIFF_ID" sqlStatement="select SEQ_INV_CHECK_DIFF.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+
+	
+   	<table schema="" tableName="TT_DELIVERY_PLAN_D" domainObjectName="TtDeliveryPlanDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_DELIVERY_PLAN_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table> 
+    
+	
+    <table schema="" tableName="TT_CHECK_DIFF_D" domainObjectName="TtCheckDiffDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_CHECK_DIFF_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+   	<table schema="" tableName="TT_CHECK_DIFF" domainObjectName="TtCheckDiffPO">
+    	<generatedKey column="DIFF_ID" sqlStatement="select SEQ_CHECK_DIFF.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+   	
+   	<table schema="" tableName="TR_WAREHOUSE_BUSINESS" domainObjectName="TrWarehouseBusinessPO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_WAREHOUSE_BUSINESS.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+   	<table schema="" tableName="TR_WAREHOUSE_BUSINESS" domainObjectName="TrWarehouseBusinessPO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_WAREHOUSE_BUSINESS.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+   	
+   	<table schema="" tableName="TR_POST_SCOPE" domainObjectName="TrPostScopePO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_POST_SCOPE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+   
+    <table schema="" tableName="TR_MATERIAL_BUSINESS" domainObjectName="TrMaterialBusinessPO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_MATERIAL_BUSINESS.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TR_COMPANY_WAREHOUSE" domainObjectName="TrCompanyWarehousePO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_COMPANY_WAREHOUSE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TM_SMIP" domainObjectName="TmSmipPO">
+    	<generatedKey column="SMIP_ID" sqlStatement="select SEQ_SMIP.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TM_BUSINESS_SCOPE" domainObjectName="TmBusinessScopePO">
+    	<generatedKey column="BUSINESS_ID" sqlStatement="select SEQ_BUSINESS_SCOPE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TT_DMR" domainObjectName="TtDmrPO">
+    	<generatedKey column="DMR_ID" sqlStatement="select SEQ_DMR.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TT_DMR_D" domainObjectName="TtDmrDPO">
+    	<generatedKey column="DETAIL_ID" sqlStatement="select SEQ_DMR_D.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TM_GROUP_COMPANY" domainObjectName="TmGroupCompanyPO">
+    	<generatedKey column="GROUP_ID" sqlStatement="select SEQ_GROUP_COMPANY.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TM_SUPPLIER" domainObjectName="TmSupplierPO">
+    	<generatedKey column="SUPPLIER_ID" sqlStatement="select SEQ_SUPPLIER.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TM_CUSTOMER" domainObjectName="TmCustomerPO">
+    	<generatedKey column="CUSTOMER_ID" sqlStatement="select SEQ_CUSTOMER.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+
+	
+	<table schema="" tableName="TR_SUPPLIER_MATERIAL" domainObjectName="TrSupplierMaterialPO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_SUPPLIER_MATERIAL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+
+	<table schema="" tableName="TR_CUSTOMER_SUPPLIER" domainObjectName="TrCustomerSupplierPO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_CUSTOMER_SUPPLIER.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+
+	
+    <table schema="" tableName="TM_BOM_REPLACE" domainObjectName="TmBomReplacePO">
+    	<generatedKey column="BR_ID" sqlStatement="select SEQ_BOM_REPLACE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+
+    
+    <table schema="" tableName="TM_UTENSIL" domainObjectName="TmUtensilPO">
+    	<generatedKey column="UTENSIL_ID" sqlStatement="select SEQ_UTENSIL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TR_STORAGE_MATERIAL" domainObjectName="TrStorageMaterialPO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_STORAGE_MATERIAL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TM_UTENSIL_TYPE" domainObjectName="TmUtensilTypePO">
+    	<generatedKey column="TYPE_ID" sqlStatement="select SEQ_UTENSIL_TYPE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TR_STORAGE_AREA_MATERIAL" domainObjectName="TrStorageAreaMaterialPO">
+    	<generatedKey column="TR_ID" sqlStatement="select SEQ_STORAGE_AREA_MATERIAL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TR_UTENSIL_MATERIAL" domainObjectName="TrUtensilMaterialPO">
+    	<generatedKey column="TR_ID" sqlStatement="select SEQ_UTENSIL_MATERIAL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+    
+    <table schema="" tableName="TM_MATERIAL" domainObjectName="TmMaterialPO">
+    	<generatedKey column="MATERIAL_ID" sqlStatement="select SEQ_MATERIAL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TM_BOM" domainObjectName="TmBomPO">
+    	<generatedKey column="BOM_ID" sqlStatement="select SEQ_BOM.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TM_COMPANY" domainObjectName="TmCompanyPO">
+    	<generatedKey column="COMPANY_ID" sqlStatement="select SEQ_COMPANY.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TM_PACK" domainObjectName="TmPackPO">
+    	<generatedKey column="PACK_ID" sqlStatement="select SEQ_PACK.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TM_STORAGE_AREA" domainObjectName="TmStorageAreaPO">
+    	<generatedKey column="AREA_ID" sqlStatement="select SEQ_STORAGE_AREA.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TM_UTENSIL" domainObjectName="TmUtensilPO">
+    	<generatedKey column="UTENSIL_ID" sqlStatement="select SEQ_UTENSIL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TM_WAREHOUSE" domainObjectName="TmWarehousePO">
+    	<generatedKey column="WAREHOUSE_ID" sqlStatement="select SEQ_WAREHOUSE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TR_POST_WAREHOUSE" domainObjectName="TrPostWarehousePO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_POST_WAREHOUSE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TR_STORAGE_MATERIAL" domainObjectName="TrStorageMaterialPO">
+    	<generatedKey column="R_ID" sqlStatement="select SEQ_STORAGE_MATERIAL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	
+	<table schema="" tableName="TR_WAREHOUSE_MATERIAL" domainObjectName="TrWarehouseMaterialPO">
+    	<generatedKey column="SCOPE_ID" sqlStatement="select SEQ_WAREHOUSE_MATERIAL.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	 
+
+    <table schema="" tableName="TF_ATTACHMENTS" domainObjectName="TfAttachmentsPO">
+    	<generatedKey column="ATTA_ID" sqlStatement="select SEQ_ATTACHMENTS.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+
+    <table schema="" tableName="TM_ORG" domainObjectName="TmOrgPO">
+    	<generatedKey column="ORG_ID" sqlStatement="select SEQ_ORG.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    </table>
+	<table schema="" tableName="TM_POSITION" domainObjectName="TmPositionPO">
+		<generatedKey column="POSITION_ID" sqlStatement="select SEQ_POSITION.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TM_POST" domainObjectName="TmPostPO">
+		<generatedKey column="POST_ID" sqlStatement="select SEQ_POST.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TR_POST_USER" domainObjectName="TrPostUserPO">
+		<generatedKey column="R_ID" sqlStatement="select SEQ_POST_USER.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TM_ROLE" domainObjectName="TmRole">
+		<generatedKey column="ROLE_ID" sqlStatement="select SEQ_ROLE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TR_POST_ROLE" domainObjectName="TrPostRolePO">
+		<generatedKey column="R_ID" sqlStatement="select SEQ_POST_ROLE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TM_FUNCTION" domainObjectName="TmFunctionPO" >
+		<generatedKey column="FUNCTION_ID" sqlStatement="select SEQ_FUNCTION.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+	<table schema="" tableName="TR_FUNC_ROLE" domainObjectName="TrFuncRolePO">
+		<generatedKey column="R_ID" sqlStatement="select SEQ_FUNC_ROLE.NEXTVAL from dual" identity="false" />
+    	<columnOverride column="CREATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+    	<columnOverride column="UPDATE_DATE" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp"/>
+	</table>
+ -->
+  </context>
+</generatorConfiguration>

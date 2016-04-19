@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuncetec.healthcare.mapper.usermanager.UserManagerMapper" >
+	<resultMap id="BaseResultMap" type="com.yuncetec.healthcare.model.TmUserPO" >
+		<id column="USER_ID" property="userId" jdbcType="INTEGER" />
+		<result column="USER_CODE" property="userCode" jdbcType="VARCHAR" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+		<result column="SEX" property="sex" jdbcType="INTEGER" />
+		<result column="PHONE" property="phone" jdbcType="VARCHAR" />
+		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+		<result column="EMAIL" property="email" jdbcType="VARCHAR" />
+		<result column="BIRTHDAY" property="birthday" jdbcType="DATE" />
+		<result column="USER_TYPE" property="userType" jdbcType="INTEGER" />
+		<result column="USER_STATUS" property="userStatus" jdbcType="INTEGER" />
+		<result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="CREATE_BY" property="createBy" jdbcType="INTEGER" />
+		<result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP" />
+		<result column="UPDATE_BY" property="updateBy" jdbcType="INTEGER" />
+	</resultMap>
+	
+	
+	<sql id="Base_Column_List" >
+	  USER_ID, USER_CODE, USER_NAME, PASSWORD, SEX, PHONE, MOBILE, EMAIL, BIRTHDAY, USER_TYPE, 
+	  USER_STATUS, CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY
+	</sql>
+	
+    <!--  分页查询List -->
+    <select id="userManagerPageQuery" resultMap="BaseResultMap" parameterType="pager">
+		select 
+		<include refid="Base_Column_List" />
+		from tm_user
+		where 1 = 1
+		<if test="condition.userCode != '' and condition.userCode != null">
+            and user_code like CONCAT('%',#{condition.userCode},'%')
+        </if>
+        <if test="condition.userName != '' and condition.userName != null">
+        	and user_name like CONCAT('%',#{condition.userName},'%')
+        </if>
+        <if test="condition.userStatus != null">
+        	and user_status = #{condition.userStatus}
+        </if>
+    </select>
+</mapper>
