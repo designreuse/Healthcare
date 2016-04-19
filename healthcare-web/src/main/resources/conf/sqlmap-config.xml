@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	 
+	<!-- <settings> -->
+		<!--&lt;!&ndash; changes from the defaults &ndash;&gt;-->
+		<!--<setting name="lazyLoadingEnabled" value="false" />-->
+	<!-- </settings> -->
+	
+	<typeAliases>
+		<typeAlias alias="hashMap" type="java.util.HashMap" />
+		<typeAlias alias="pager" type="com.yuncetec.healthcare.core.page.Pager" />
+	</typeAliases>
+
+	<plugins>
+		<plugin interceptor="com.yuncetec.healthcare.core.interceptor.PaginationInterceptor" />
+    </plugins>
+</configuration>

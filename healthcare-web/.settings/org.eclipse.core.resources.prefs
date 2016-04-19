@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources/conf/jdbc.properties=UTF-8
+encoding//src/main/resources/conf/redis.properties=UTF-8
+encoding//src/main/webapp/queryPage/pageDiv.html=UTF-8
+encoding//src/main/webapp/style/page-info.css=UTF-8
