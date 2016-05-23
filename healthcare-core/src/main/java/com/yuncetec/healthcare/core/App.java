@@ -2,7 +2,7 @@ package com.yuncetec.healthcare.core;
 
 /**
  * Hello world!
- *	dev
+ *	dev2
  */
 public class App 
 {
